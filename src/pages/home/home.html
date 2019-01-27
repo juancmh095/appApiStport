@@ -1,18 +1,25 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title><ion-icon name="football"></ion-icon> Vsoft-Sports</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content padding color="light">
+    <ion-card *ngFor="let data of notes; let i=index">
+        <img src="{{data.urlToImage}}">
+        <ion-card-header>
+          <ion-card-title>{{data.title}}</ion-card-title>
+          <p>fuente: {{data.source.name}}</p>
+          <p>{{data.publishedAt}}</p>
+          <a target="_blank" href="{{data.url}}"><ion-icon name="link"></ion-icon></a>
+        </ion-card-header>
+      
+        <ion-card-content>
+         {{data.content}}
+        </ion-card-content>
+      </ion-card>
+  
 </ion-content>
